@@ -1,0 +1,75 @@
+{% extends 'applicationWestaflex/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}"/>
+{% endblock %}
+
+{% block nav %}
+{% endblock %}
+
+{% block content %}
+<div id="page">
+
+    <a href="http://groupe-oec.fr/campus/">
+    <img id="active" src = "{% static 'img/logo-ozanam.png' %}" alt="logo"></a>
+    <br>
+    {% if error %}
+    <div class='alert alert-danger alert-dismissible fade in'>
+        <a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+        <strong></strong> Nom utilisateur ou mot de passe mauvais
+    </div>
+    {% endif %}
+    {% if user.is_authenticated %}
+
+    <meta http-equiv="refresh" content="0;URL={% url 'enregistreProcedure'%}">
+
+    {% else %}
+          
+	<form  id="LoginForm"  action="" method="post">
+                 
+    	<div class="form-group">
+     
+        		 {% csrf_token %}
+                 {{ form.non_field_errors }}
+
+				<div class="fieldWrapper">
+    				{{ form.utilisateur.errors }}
+    				<label for="{{ form.utilisateur.utilisateur }}" >Utilisateur</label>
+     			    <input id="user" class="form-control" placeholder="Nom utilisateur" {{form.utilisateur}} 
+				</div>
+
+				<div class="fieldWrapper">
+    				{{ form.mot_passe.errors }}
+   					 <label for="{{ form.mot_passe.mot_passe }}">Mot de Passe</label>
+   					 <input id="password"  class="form-control" placeholder="Mot de passe opérateur" {{form.mot_passe }}
+				</div>
+            
+                <br><br>
+
+                <label class="containerCheckbox">Afficher Mot passe
+                <input type="checkbox" onclick="HideShowPassword()">
+                <span class="checkmark"></span>
+                </label>
+
+        </div>
+
+        <button id="buttonSubmit" type="submit">Connexion</button>
+
+            
+
+    </form>
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/login.js' %}"></script>
+{% endblock %}

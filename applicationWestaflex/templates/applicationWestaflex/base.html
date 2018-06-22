@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    {% block style %}
+    {% endblock %}
+</head>
+
+<body>
+
+    {% block nav %}
+
+    <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a class="active" href="{% url "enregistreProcedure" %}">Enregistrer procédure</a>
+            <a href="{% url "selectionnerProcedure" %}">Sélection procédure</a>
+            <a href="{% url "statistiques" %}">Statistiques</a>
+            <a href="{% url "listeProcedures" %}">Liste procédures</a>
+            <a href="{% url "deconnexion" %}" >Déconnexion</a>
+    </div>
+    <div id="entete" class="header">
+            <a id="lien" href="http://groupe-oec.fr/campus/" class="logo">Contrôle d'étanchéitéV2</a>
+            <div class="header-right">
+                <div id="main">
+                    <span style="font-size:30px;cursor:pointer;color:white" onclick="openNav()">&#9776; Menu</span>
+                </div>
+            </div>
+    </div>
+    
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
+    
+    {% block footer %}
+
+    <div class="footer">
+        <div class="footerDesign">
+             <div class="PiedPage">
+                <a href="http://groupe-oec.fr/campus/" class="logo">Campus OZANAM</a>
+                <a href="{% url "enregistreProcedure" %}">Enregistrer procédure</a>
+                <a href="{% url "selectionnerProcedure" %}">Sélectionner procédure</a>
+                <a href="{% url "statistiques" %}">Statistiques</a>
+                <a href="{% url "listeProcedures" %}">Liste procédures</a>
+            </div>  
+        </div>
+    </div>  
+
+    {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</body>
+
+{% block script %}
+{% endblock %}
+
+</html>

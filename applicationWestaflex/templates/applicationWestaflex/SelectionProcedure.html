@@ -1,0 +1,45 @@
+
+{% extends 'applicationWestaflex/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleProcedure.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleSelectionProcedure.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_footer.css' %}"/> 
+{% endblock %}
+
+{% block content %}
+
+
+<div id="pageSelection">
+
+  <form name="myForm">
+
+
+    <fieldset>        
+            <div class="custom-select" style="width:150px;">
+                 <select name="procedure">
+                 {% for procedure in procedures %}
+                   <option value="{{procedure.id_procedure}}">Procédure {{procedure.id_procedure}}</option>
+                 {% endfor %}
+                 </select>
+            </div>
+           <div class="conteneur">
+              <div class="btn pull-right">
+                  <div id="txtHint"></div>
+                  <br><br>
+                  <button id="BoutonSupp" type="button" onclick="deleteProcedure()">Supprimer</button>
+                  <button id="BoutonSend" type="button" onclick="UpdateProcedure()" >Enregistrer</button>
+              </div>
+          </div>        
+     </fieldset>
+  </form>  
+
+</div>     
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/selectionProcedure.js' %}"></script>
+{% endblock %}

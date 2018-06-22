@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+<style>
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 4px 8px 0 lightblue;
+
+}
+
+td, th {
+
+    padding: 20px;
+    text-align: center;
+}
+</style>
+</head>
+<body>
+
+<table  class='table table-dark table-striped'>
+	<tr>
+		<td>Client</td>
+		<td>{{ procedure.client }}</td>
+	</tr>
+    <tr>
+    	<td>Pression</td>
+    	<td>{{ procedure.pression }}</td>
+    </tr>
+    <tr>
+    	<td>Durée</td>
+    	<td>{{ procedure.duree }}</td>
+    </tr>
+	<tr>
+		<td>Marge</td>
+		<td>{{ procedure.marge }}</td>
+		
+	</tr>	
+	<tr>
+		<td>Diamètre</td>
+		<td>{{ procedure.diametre }}</td>
+	</tr>
+	<tr>
+		<td>Référence</td>
+		<td>{{ procedure.reference }}</td>
+	</tr>
+	
+</table>
+
+</body>
+</html>

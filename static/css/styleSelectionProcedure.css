@@ -1,0 +1,83 @@
+.custom-select {
+  position: relative;
+  font-family: Arial;
+}
+.custom-select select {
+  display: none; 
+}
+.select-selected {
+  background-color:  #036873;
+}
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 10px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  
+}
+
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px;
+}
+.select-items div,.select-selected {
+  color: #ffffff;
+  padding: 8px 16px;
+  border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  user-select: none;
+}
+.select-items {
+  position: absolute;
+  background-color:  #036873;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.select-hide {
+  display: none;
+}
+.select-items div:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+#BoutonSend{
+  background-color:  #036873;
+    border: none;
+    color: lightblue;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 grey;
+    border :2px solid lightblue;
+}
+
+#BoutonSupp{
+ background-color: #8B0000;
+    border: none;
+    color: white;
+    padding: 10px 27px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 grey;
+    border :2px solid lightblue;
+
+}
+.conteneur{
+  margin-left: 150px;
+}

@@ -1,0 +1,43 @@
+{% extends 'applicationWestaflex/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleProcedure.css' %}"/>
+     <link rel="stylesheet" type="text/css" href="{% static 'css/recherche_box.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_footer.css' %}"/> 
+{% endblock %}
+
+{% block content %}
+
+<div id="conteneur" class='container'>
+    <input type="text" id="RechercheForm" placeholder="Recherche...">
+
+    <table class='table table-dark table-striped'>
+        <thead>
+            <tr>
+                <td>Client</td>
+                <td>Référence tube</td>
+                <td>Nombre de tube défectueux</td>
+                <td>Nombre de tube sans défaut</td>
+            </tr>
+        </thead>
+        <tbody id="MaTable">
+        {% for stat in stats %}
+            <tr>
+                <td>{{stat.client}}</td>
+                <td>{{stat.tube_defectueux}}</td>
+                <td>{{stat.tube_non_defectueux}}</td>
+                <td>{{stat.reference}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/statistiques.js' %}"></script>
+{% endblock %}

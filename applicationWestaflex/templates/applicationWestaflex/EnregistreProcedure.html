@@ -1,0 +1,81 @@
+{% extends 'applicationWestaflex/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleProcedure.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_footer.css' %}"/> 
+{% endblock %}
+
+{% block content %}
+
+<div id="page">
+     
+   {% if envoi %}
+    <meta http-equiv="refresh" content="0;URL={% url "enregistreProcedure" %}">
+    <div class='alert alert-success alert-dismissible fade in'>
+          <a href="{% url "enregistreProcedure" %}" class='close' data-dismiss='alert' aria-label='close'>&times;</a>
+          <strong></strong> Procédure enregistré
+          <span class="glyphicon glyphicon-ok"></span> 
+    </div>
+
+   {% endif %}
+
+   <form  id="LoginForm" action="{% url "enregistreProcedure" %}"  method="post">
+    <fieldset>
+        <div class="form-group">
+     
+               {% csrf_token %}
+               {{ form.non_field_errors }}
+
+                <div class="fieldWrapper">
+                    {{ form.client.errors }}
+                    <label for="{{ form.client.client }}" >Client</label>
+                    <input  class="form-control" placeholder="Nom Client" {{form.client}} 
+                </div>
+
+                <div class="fieldWrapper">
+                     {{ form.pression.errors }}
+                      <label for="{{ form.pression.pression }}">Pression</label>
+                      <input  class="form-control" placeholder="Pression de test" {{form.pression }}
+                </div>
+
+                <div class="fieldWrapper">
+                     {{ form.duree.errors }}
+                     <label for="{{ form.duree.duree }}">Durée</label>
+                     <input  class="form-control" placeholder="Durée de test" {{form.duree }}
+                </div>
+            
+                <div class="fieldWrapper">
+                    {{ form.marge.errors }}
+                    <label for="{{ form.marge.marge }}">Marge</label>
+                    <input  class="form-control" placeholder="Marge de test" {{form.marge }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.diametre.errors }}
+                    <label for="{{ form.diametre.diametre }}">Diamètre</label>
+                    <input  class="form-control" placeholder="Diamètre du tube" {{form.diametre }}
+                </div>
+                <div class="fieldWrapper">
+                    {{ form.reference.errors }}
+                    <label for="{{ form.reference.reference }}">Référence</label>
+                    <input  class="form-control" placeholder="Référence tube" {{form.reference }}
+                </div>
+
+        </div>
+
+        <div class="btn pull-right">
+            <button class="btn btn-danger"  type="reset" >Remise à zéro</button>
+            <button class="btn btn-success"  type="submit" >Enregistrer</button>
+        </div>       
+
+    </fieldset>
+  </form>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/enregistreProcedure.js' %}"></script>
+{% endblock %}

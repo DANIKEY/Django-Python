@@ -1,0 +1,19 @@
+
+#RechercheForm {
+
+  background-image: url('img/magnifier.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px 0 grey;
+}
+
+#RechercheForm:hover{
+    box-shadow: 0 2px 4px 0 grey;
+
+}

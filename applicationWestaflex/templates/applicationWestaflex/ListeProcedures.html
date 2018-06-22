@@ -1,0 +1,69 @@
+{% extends 'applicationWestaflex/base.html' %}
+
+{% load static %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styleProcedure.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/recherche_box.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style_footer.css' %}"/> 
+{% endblock %}
+
+{% block content %}
+
+<div id="id01" class="modal">
+    <div class="modal-content animate">
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Fermer">&times;</span>
+      </div>
+      <br><br>
+      <p id="delete"></p>
+
+      <br><br>
+
+      <div class="btn pull-right">
+          <button class="btn btn-danger" type="button" onclick="document.getElementById('id01').style.display='none'">Annuler</button>
+          <button id="supp" class="btn btn-success" type="button" >Supprimer</button>
+      </div>
+      
+     
+    </div>
+</div>
+
+
+<div  id="conteneur" class='container'>
+    <input type="text" id="RechercheForm" placeholder="Recherche...">
+
+    <table id="Table" class='table table-dark table-striped'>
+          <thead>
+                <tr>
+                    <td>Procédure</td>
+                    <td>Client</td>
+                    <td>Pression</td>
+                    <td>Durée</td>
+                    <td>Marge</td>
+                    <td>Diamètre</td>
+                    <td>Référence</td>
+                </tr>
+          </thead>
+          <tbody id="MaTable">
+          {% for procedure in procedures %}
+                <tr ondblclick="deleteProcedure(this)">
+                    <td id="demo">{{procedure.id_procedure}}</td>
+                    <td>{{procedure.client}}</td>
+                    <td>{{procedure.pression}}</td>
+                    <td>{{procedure.duree}}</td>
+                    <td>{{procedure.marge}}</td>
+                    <td>{{procedure.diametre}}</td>
+                    <td>{{procedure.reference}}</td>
+                </tr>
+          {% endfor %}
+          </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{% static 'js/listesProcedure.js' %}"></script>
+{% endblock %}
